@@ -14,28 +14,49 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let redView = UIView()
-        view.addSubview(redView)
-        
         redView.backgroundColor = .red
-        redView.translatesAutoresizingMaskIntoConstraints = false // Para poder setar contraints de forma manual
         
-        /***
-            Observação: Uma contraint pode interferir na outra, por isso algumas estarão comentadas
-         */
+        let blueView = UIView()
+        blueView.backgroundColor = .blue
         
-        // CONTRAINTS BÁSICAS
-//        redView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-//        redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
-//        redView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
-//        redView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+        let yellowView = UIView()
+        yellowView.backgroundColor = .yellow
         
-        // CONTRAINTS DE LARGURA E ALTURA
-        redView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        redView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+//        view.addSubview(redView)
+//        view.addSubview(blueView)
         
-        // CONTRAINTS DE ALINHAMENTO VERTICAL E HORIZONTAL
-        redView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        redView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//        // DESENHANDO RED
+//        redView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        redView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        redView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        redView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//
+//        redView.widthAnchor.constraint(equalToConstant: view.bounds.width / 2).isActive = true
+//
+//        // DESENHANDO BLUE
+//        blueView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        blueView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        blueView.leadingAnchor.constraint(equalTo: redView.trailingAnchor).isActive = true
+//        blueView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        blueView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        let horizontalStackView = UIStackView(arrangedSubviews: [redView, blueView])
+        horizontalStackView.distribution = .fillEqually
+        
+        let stackView: UIStackView = UIStackView(arrangedSubviews: [horizontalStackView, yellowView])
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        
+        view.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        redView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
     }
 
 
