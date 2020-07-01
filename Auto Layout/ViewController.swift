@@ -28,14 +28,7 @@ class ViewController: UIViewController {
 //        // DESENHANDO RED
         redView.translatesAutoresizingMaskIntoConstraints = false
         
-        redView.preencher(
-            top: view.topAnchor,
-            leading: view.leadingAnchor,
-            trailing: nil,
-            bottom: nil,
-            padding: .init(top: 50, left: 30, bottom: 100, right: 50),
-            size: .init(width: 200, height: 500)
-        )
+        redView.preencherSuperview(padding: .init(top: 50, left: 50, bottom: 50, right: 50))
 //        redView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
 //        redView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 //        redView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true

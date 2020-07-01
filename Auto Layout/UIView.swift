@@ -37,4 +37,13 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+    func preencherSuperview (padding: UIEdgeInsets = .zero) {
+        preencher(
+            top: superview?.topAnchor,
+            leading: superview?.leadingAnchor,
+            trailing: superview?.trailingAnchor,
+            bottom: superview?.bottomAnchor,
+            padding: padding
+        )
+    }
 }
