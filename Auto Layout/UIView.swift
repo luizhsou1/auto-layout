@@ -37,6 +37,7 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+    
     func preencherSuperview (padding: UIEdgeInsets = .zero) {
         preencher(
             top: superview?.topAnchor,
@@ -45,5 +46,25 @@ extension UIView {
             bottom: superview?.bottomAnchor,
             padding: padding
         )
+    }
+    
+    func centralizarSuperview (size: CGSize = .zero) {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        if let superviewCenteX = superview?.centerXAnchor {
+            centerXAnchor.constraint(equalTo: superviewCenteX).isActive = true
+        }
+        
+        if let superviewCenteY = superview?.centerYAnchor {
+            centerYAnchor.constraint(equalTo: superviewCenteY).isActive = true
+        }
+        
+        if size.width != 0 {
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        }
+        
+        if size.height != 0 {
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
     }
 }
